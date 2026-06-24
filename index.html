@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ReviewGuard - Fake Software Review Detector</title>
+    <meta name="description" content="Detect fake software reviews using ML-powered sentiment analysis, text patterns, and reviewer behavior detection." />
+    <meta name="author" content="ReviewGuard" />
+    <meta name="google-site-verification" content="h3Dx2iJsUi7k67FuJN7LnFd8h4rrwoYtAoN4wz02EE8" />
+
+    <meta property="og:title" content="ReviewGuard - Fake Review Detector" />
+    <meta property="og:description" content="Detect fake software reviews with ML-powered analysis" />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ReviewGuard" />
+
+    <!-- Modern fonts: Inter + JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- ================================================ -->
+    <!--  GOOGLE OAUTH CONFIGURATION                       -->
+    <!--  ⬇️  PASTE YOUR GOOGLE OAUTH CLIENT ID BELOW ⬇️  -->
+    <!-- ================================================ -->
+    <script>
+      // ============================================================
+      // 🔑 GOOGLE OAUTH CLIENT ID — EDIT THIS VALUE
+      // ============================================================
+      // Steps to get your Client ID:
+      //   1. Visit https://console.cloud.google.com/
+      //   2. Go to APIs & Services > Credentials
+      //   3. Click "Create Credentials" > "OAuth 2.0 Client IDs"
+      //   4. Set Application type to "Web application"
+      //   5. Add your domain to "Authorized JavaScript origins"
+      //   6. Copy the Client ID and replace "PASTE_CLIENT_ID_HERE" below
+      // ============================================================
+      var GOOGLE_CLIENT_ID = "PASTE_CLIENT_ID_HERE";
+
+      // Make available globally so React components can access it
+      window.GOOGLE_CLIENT_ID = GOOGLE_CLIENT_ID;
+    </script>
+
+    <!-- Google Identity Services (GIS) Library — loads asynchronously -->
+    <!-- This powers the "Continue with Google" button on the Auth page -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    <!--
+      Google Sign-In Button Container
+      ─────────────────────────────────
+      This hidden div is the mount point for the native Google Sign-In button
+      rendered by Google Identity Services. The React Auth component will
+      target this element when initializing google.accounts.id.renderButton().
+      It is hidden by default; your React code controls visibility.
+    -->
+    <div id="google-signin-container" style="display:none;" aria-hidden="true"></div>
+
+    <!-- Theme initialization: prevent flash of wrong theme -->
+    <script>
+      (function () {
+        try {
+          var theme = localStorage.getItem("theme");
+          if (theme === "light") {
+            document.documentElement.classList.add("light");
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+
+  <body>
+    <!--
+      Google Sign-In Button Container
+      ─────────────────────────────────
+      Mount point for the native Google Identity Services button.
+      React's Auth component targets this element when GOOGLE_CLIENT_ID is configured.
+      Kept hidden by default; Auth component controls visibility via a ref.
+    -->
+    <div id="google-signin-container" style="display:none;" aria-hidden="true"></div>
+
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
