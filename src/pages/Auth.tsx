@@ -67,7 +67,7 @@ const Auth = () => {
   // and the user falls back to the lovable OAuth button.
   useEffect(() => {
     const clientId = window.GOOGLE_CLIENT_ID;
-    if (!clientId || clientId === "PASTE_CLIENT_ID_HERE") return;
+    if (!clientId || clientId === "209144618447-6llevc3tfgjkl2vklcndftb4pes6tjsc.apps.googleusercontent.com") return;
     if (!googleBtnRef.current) return;
 
     const tryRender = () => {
